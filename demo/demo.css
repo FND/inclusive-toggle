@@ -1,0 +1,33 @@
+button {
+	border-radius: 0.5rem;
+	padding: 1em 2em;
+	color: #FFF;
+	background-color: #000;
+}
+
+toggle-button [aria-pressed] {
+	position: relative;
+	top: -0.25rem;
+	left: -0.25rem;
+	background-color: #A00;
+	box-shadow: 0.125em 0.125em 0 #FFF,
+			0.25em 0.25em #AAA;
+}
+
+toggle-button [aria-pressed="true"] {
+	background-color: #008000;
+	box-shadow: inset 0 0 0 0.15rem #AAA,
+			inset 0.25em 0.25em 0 #FFF;
+}
+
+toggle-button [aria-pressed]:focus {
+	outline: none;
+	box-shadow: 0 0 0 0.25rem yellow;
+}
+
+/* ensure both the inset and outset shadows (see above) are present */
+toggle-button [aria-pressed="true"]:focus {
+	box-shadow: 0 0 0 0.25rem yellow,
+			inset 0 0 0 0.15rem #000,
+			inset 0.25em 0.25em 0 #FFF;
+}

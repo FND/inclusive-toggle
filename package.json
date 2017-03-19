@@ -10,6 +10,12 @@
       "es2015-rollup"
     ]
   },
+  "dependencies": {
+    "uitil": "^1.1.1"
+  },
+  "optionalDependencies": {
+    "document-register-element": "^1.4.1"
+  },
   "devDependencies": {
     "babel-preset-es2015-rollup": "^3.0.0",
     "eslint": "^3.16.1",

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>&lt;toggle-button&gt; demo</title>
+	<link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+	<h1>&lt;toggle-button&gt; demo</h1>
+
+	<toggle-button global-emitter="#notifications" pressed>
+		I want to receive notifications
+	</toggle-button>
+
+	<h2>Selection Overview</h2>
+
+	<section id="notifications">
+		<h3>Notifications</h3>
+		<ul style="font-weight: bold;">
+			<li>mentions</li>
+			<li>direct messages</li>
+			<li>relevant topics</li>
+		</ul>
+	</section>
+
+	<section id="recommendations">
+		<h3>Recommendations</h3>
+		<toggle-button emitter="section">I want to receive recommendations</toggle-button>
+		<ul>
+			<li>channels</li>
+			<li>people</li>
+		</ul>
+	</section>
+
+	<script src="../node_modules/document-register-element/build/document-register-element.js"></script>
+	<script src="../dist/bundle.js"></script>
+	<script>
+(function() {
+
+var notifications = document.getElementById("notifications");
+console.log(notifications);
+notifications.addEventListener("toggle", function(ev) {
+	var active = ev.detail.pressed;
+	this.querySelector("ul").style.fontWeight = active ? "bold" : "normal";
+});
+
+var recommendations = document.getElementById("recommendations");
+console.log(recommendations);
+recommendations.addEventListener("toggle", function(ev) {
+	var active = ev.detail.pressed;
+	this.querySelector("ul").style.fontWeight = active ? "bold" : "normal";
+});
+
+}());
+	</script>
+</body>
+
+</html>
